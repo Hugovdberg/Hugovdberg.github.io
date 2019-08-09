@@ -55,3 +55,10 @@ a:hover {
     padding: 15px;
     margin-bottom: 15px;
 }
+
+.github {
+    background-image: url("/images/GitHub-Mark-32px.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 25px;
+}
