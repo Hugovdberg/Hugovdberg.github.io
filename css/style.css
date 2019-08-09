@@ -1,0 +1,57 @@
+html {
+    background-color: #e7eaef;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+}
+h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+a, a:link {
+    color: #0954bb;
+    text-decoration: none;
+}
+a:visited {
+    color: #044094;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.warning {
+    background-color: #ffe495;
+    border-radius: 10px;
+    margin: 10px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.competentiebalk_achtergrond {
+    background-color: #dddddd;
+    border-radius: 5px;
+}
+
+.competentiebalk_voorgrond {
+    background-color: #4075c0;
+    border-radius: 5px;
+    color: #ffffff;
+    text-align: center;
+    min-height: 1em;
+    padding: 5px;
+}
+
+.schaduw_kolom {
+    padding: 5px 5px 0px 5px;
+}
+.schaduw {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+    padding: 15px;
+    margin-bottom: 15px;
+}
