@@ -43,10 +43,10 @@ while (anchor = schema.nextAnchor()) {
                 constraint \"fk$attribute.positName\" foreign key (
                     \"$attribute.anchorReferenceName\"
                 ) references \"$anchor.capsule\".\"$anchor.name\"(\"$anchor.identityColumnName\"),
-                constraint \"pk$attribute.positName\" primary key nonclustered (
+                constraint \"pk$attribute.positName\" primary key (
                     \"$attribute.identityColumnName\"
                 ),
-                constraint \"uq$attribute.positName\" unique clustered (
+                constraint \"uq$attribute.positName\" unique (
                     \"$attribute.anchorReferenceName\",
                     \"$attribute.changingColumnName\",
                     $(attribute.hasChecksum())? \"$attribute.checksumColumnName\" : \"$attribute.valueColumnName\"
@@ -71,10 +71,10 @@ while (anchor = schema.nextAnchor()) {
                 constraint \"fk_K_$attribute.positName\" foreign key (
                     \"$attribute.knotReferenceName\"
                 ) references \"$knot.capsule\".\"$knot.name\"(\"$knot.identityColumnName\"),
-                constraint \"pk$attribute.positName\" primary key nonclustered (
+                constraint \"pk$attribute.positName\" primary key (
                     \"$attribute.identityColumnName\"
                 ),
-                constraint \"uq$attribute.positName\" unique clustered (
+                constraint \"uq$attribute.positName\" unique (
                     \"$attribute.anchorReferenceName\",
                     \"$attribute.changingColumnName\",
                     \"$attribute.knotReferenceName\"
@@ -98,10 +98,10 @@ while (anchor = schema.nextAnchor()) {
                 constraint \"fk_K_$attribute.positName\" foreign key (
                     \"$attribute.knotReferenceName\"
                 ) references \"$knot.capsule\".\"$knot.name\"(\"$knot.identityColumnName\"),
-                constraint \"pk$attribute.positName\" primary key nonclustered (
+                constraint \"pk$attribute.positName\" primary key (
                     \"$attribute.identityColumnName\"
                 ),
-                constraint \"uq$attribute.positName\" unique clustered (
+                constraint \"uq$attribute.positName\" unique (
                     \"$attribute.anchorReferenceName\",
                     \"$attribute.knotReferenceName\"
                 )
@@ -121,10 +121,10 @@ while (anchor = schema.nextAnchor()) {
                 constraint \"fk$attribute.positName\" foreign key (
                     \"$attribute.anchorReferenceName\"
                 ) references \"$anchor.capsule\".\"$anchor.name\"(\"$anchor.identityColumnName\"),
-                constraint \"pk$attribute.positName\" primary key nonclustered (
+                constraint \"pk$attribute.positName\" primary key (
                     \"$attribute.identityColumnName\"
                 ),
-                constraint \"uq$attribute.positName\" unique clustered (
+                constraint \"uq$attribute.positName\" unique (
                     \"$attribute.anchorReferenceName\",
                     $(attribute.hasChecksum())? \"$attribute.checksumColumnName\" : \"$attribute.valueColumnName\"
                 )
@@ -151,7 +151,7 @@ while (anchor = schema.nextAnchor()) {
             constraint \"fk$attribute.annexName\" foreign key (
                 \"$attribute.identityColumnName\"
             ) references \"$attribute.capsule\".\"$attribute.positName\"(\"$attribute.identityColumnName\"),
-            constraint \"pk$attribute.annexName\" primary key clustered (
+            constraint \"pk$attribute.annexName\" primary key (
                 \"$attribute.identityColumnName\",
                 \"$attribute.positorColumnName\",
                 \"$attribute.positingColumnName\"
