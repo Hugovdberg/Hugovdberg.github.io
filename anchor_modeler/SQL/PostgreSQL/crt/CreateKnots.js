@@ -10,27 +10,26 @@
  ~*/
 var knot;
 while (knot = schema.nextKnot()) {
-    if(knot.isGenerator())
+    if (knot.isGenerator())
         knot.identityGenerator = 'IDENTITY(1,1)';
-    if(schema.METADATA)
+    if (schema.METADATA)
         knot.metadataDefinition = knot.metadataColumnName + ' ' + schema.metadata.metadataType + ' not null,';
-/*~
--- Knot table ---------------------------------------------------------------------------------------------------------
--- $knot.name table
------------------------------------------------------------------------------------------------------------------------
-IF Object_ID('$knot.capsule$.$knot.name', 'U') IS NULL
-CREATE TABLE [$knot.capsule].[$knot.name] (
-    $knot.identityColumnName $knot.identity $knot.identityGenerator not null,
-    $knot.valueColumnName $knot.dataRange not null,
-    $(knot.hasChecksum())? $knot.checksumColumnName as cast(${schema.metadata.encapsulation}$.MD5(cast($knot.valueColumnName as varbinary(max))) as varbinary(16)) persisted,
-    $knot.metadataDefinition
-    constraint pk$knot.name primary key (
-        $knot.identityColumnName asc
-    ),
-    constraint uq$knot.name unique (
-        $(knot.hasChecksum())? $knot.checksumColumnName : $knot.valueColumnName
-    )
-);
-GO
-~*/
+    /*~
+    -- Knot table ---------------------------------------------------------------------------------------------------------
+    -- $knot.name table
+    -----------------------------------------------------------------------------------------------------------------------
+    CREATE TABLE IF NOT EXISTS \"$knot.capsule\".\"$knot.name\" (
+        \"$knot.identityColumnName\" $knot.identity $knot.identityGenerator not null,
+        \"$knot.valueColumnName\" $knot.dataRange not null,
+        $(knot.hasChecksum())? \"$knot.checksumColumnName\" as cast(${schema.metadata.encapsulation}$.MD5(cast(\"$knot.valueColumnName\" as varbinary(max))) as varbinary(16)) persisted,
+        \"$knot.metadataDefinition\"
+        constraint \"pk$knot.name\" primary key (
+            \"$knot.identityColumnName\"
+        ),
+        constraint \"uq$knot.name\" unique (
+            $(knot.hasChecksum())? \"$knot.checksumColumnName\" : \"$knot.valueColumnName\"
+        )
+    );
+    GO
+    ~*/
 }
