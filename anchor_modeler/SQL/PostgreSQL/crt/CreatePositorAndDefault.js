@@ -17,5 +17,4 @@ INSERT INTO \"$schema.metadata.encapsulation\".\"_$schema.metadata.positorSuffix
 VALUES(
     0 -- the default positor
 ) ON CONFLICT DO NOTHING;
-GO
 ~*/

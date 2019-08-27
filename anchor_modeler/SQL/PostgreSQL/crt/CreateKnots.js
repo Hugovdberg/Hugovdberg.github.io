@@ -30,6 +30,5 @@ while (knot = schema.nextKnot()) {
             $(knot.hasChecksum())? \"$knot.checksumColumnName\" : \"$knot.valueColumnName\"
         )
     );
-    GO
     ~*/
 }
