@@ -13,7 +13,7 @@ while (knot = schema.nextKnot()) {
     if (knot.isGenerator())
         knot.identityGenerator = 'IDENTITY(1,1)';
     if (schema.METADATA)
-        knot.metadataDefinition = knot.metadataColumnName + ' ' + schema.metadata.metadataType + ' not null,';
+        knot.metadataDefinition = '"' + knot.metadataColumnName + '" ' + schema.metadata.metadataType + ' not null,';
     /*~
     -- Knot table ---------------------------------------------------------------------------------------------------------
     -- $knot.name table
@@ -22,7 +22,7 @@ while (knot = schema.nextKnot()) {
         \"$knot.identityColumnName\" $knot.identity $knot.identityGenerator not null,
         \"$knot.valueColumnName\" $knot.dataRange not null,
         $(knot.hasChecksum())? \"$knot.checksumColumnName\" as cast(${schema.metadata.encapsulation}$.MD5(cast(\"$knot.valueColumnName\" as varbinary(max))) as varbinary(16)) persisted,
-        \"$knot.metadataDefinition\"
+        $knot.metadataDefinition
         constraint \"pk$knot.name\" primary key (
             \"$knot.identityColumnName\"
         ),
