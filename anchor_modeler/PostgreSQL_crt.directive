@@ -4,7 +4,7 @@ SQL/PostgreSQL/NamingConvention.js
 SQL/PostgreSQL/crt/SetupPositorPartitioning.js
 SQL/PostgreSQL/crt/CreatePositorAndDefault.js
 SQL/PostgreSQL/crt/CreateKnots.js
-SQL/PostgreSQL/crt/CreateKnotTriggers.js
+# SQL/PostgreSQL/crt/CreateKnotTriggers.js
 SQL/PostgreSQL/crt/CreateAnchorsAndAttributes.js
 SQL/PostgreSQL/crt/CreateAttributeAssembledViews.js
 SQL/PostgreSQL/crt/CreateAttributeRewinders.js
